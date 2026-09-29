@@ -1,0 +1,93 @@
+name: Scaffold runtime audit
+"on":
+  push:
+    paths:
+      - "audit-scaffolds/runtime/**"
+      - ".github/workflows/scaffold-runtime-audit.yml"
+permissions:
+  contents: read
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.9", "3.11", "3.14"]
+    defaults:
+      run:
+        working-directory: audit-scaffolds/runtime/python
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Install trusted starter and pytest
+        run: python -m pip install -e . pytest
+      - name: Test trusted starter
+        run: python -m pytest -q
+      - name: Execute trusted module and installed CLI
+        run: |
+          python -m pkg_class alpha beta -v
+          pkg_class alpha beta -v
+  node:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        language: ["javascript", "typescript"]
+    defaults:
+      run:
+        working-directory: audit-scaffolds/runtime/${{ matrix.language }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install declared development dependencies
+        run: npm install
+      - name: Compile and test trusted starter
+        run: npm test
+      - name: Execute trusted CLI
+        run: npm start -- alpha beta
+  go:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: audit-scaffolds/runtime/go
+    env:
+      GOTOOLCHAIN: local
+      GOPROXY: "off"
+      GOSUMDB: "off"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.22"
+          cache: false
+      - name: Build, test and execute trusted starter
+        run: |
+          go build ./...
+          go test ./...
+          go run . alpha beta
+  rust:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        directory: ["rust", "rust-keyword"]
+    defaults:
+      run:
+        working-directory: audit-scaffolds/runtime/${{ matrix.directory }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build, test and execute trusted starter without registry dependencies
+        run: |
+          rustc --version
+          cargo --version
+          cargo build --offline
+          cargo test --offline
+          cargo run --offline -- alpha beta

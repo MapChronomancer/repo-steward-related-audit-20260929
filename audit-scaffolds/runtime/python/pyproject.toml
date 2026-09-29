@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "class"
+version = "0.1.0"
+description = "Harmless documentation fixture \"quoted\".\nSecond line C:\\notes No AI execution."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "MapChronomancer" }]
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.scripts]
+pkg_class = "pkg_class.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

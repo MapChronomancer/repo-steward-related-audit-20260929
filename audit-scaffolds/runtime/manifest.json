@@ -1,0 +1,13 @@
+{
+  "fixture": "repo-steward-static-scaffold-runtime-v1",
+  "content_sha256": "b0f2e97b9ed974e05afe95c3d70577a5af4d79753d4454779cbd7b9f399a4415",
+  "ai_executed": false,
+  "variants": [
+    "python",
+    "javascript",
+    "typescript",
+    "go",
+    "rust",
+    "rust-keyword"
+  ]
+}

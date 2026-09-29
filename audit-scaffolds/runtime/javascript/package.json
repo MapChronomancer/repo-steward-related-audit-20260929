@@ -1,0 +1,22 @@
+{
+  "name": "study-notes",
+  "version": "0.1.0",
+  "description": "Harmless documentation fixture \"quoted\".\nSecond line C:\\notes No AI execution.",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node --test",
+    "start": "node src/index.js"
+  },
+  "keywords": [
+    "harmless",
+    "documentation",
+    "fixture",
+    "second",
+    "line",
+    "no",
+    "ai"
+  ],
+  "license": "MIT",
+  "author": "MapChronomancer"
+}
