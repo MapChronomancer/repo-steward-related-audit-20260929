@@ -2,3 +2,13 @@
 
 This is a harmless functional-audit fixture with a static starter scaffold.
 It is not an installer or a finished end-user product. No AI source is executed.
+
+<!-- repo-steward:related:start -->
+
+## Related repositories
+
+Other repositories in this workspace:
+
+- [MapChronomancer/repo-steward-audit-20260928-2240](https://github.com/MapChronomancer/repo-steward-audit-20260928-2240)
+
+<!-- repo-steward:related:end -->
