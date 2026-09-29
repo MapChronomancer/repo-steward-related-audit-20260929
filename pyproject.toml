@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "repo-steward-related-audit-20260929"
+version = "0.1.0"
+description = "Harmless starter example for functional auditing"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "MapChronomancer" }]
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.scripts]
+repo_steward_related_audit_20260929 = "repo_steward_related_audit_20260929.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
