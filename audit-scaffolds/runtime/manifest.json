@@ -1,6 +1,6 @@
 {
   "fixture": "repo-steward-static-scaffold-runtime-v1",
-  "content_sha256": "b0f2e97b9ed974e05afe95c3d70577a5af4d79753d4454779cbd7b9f399a4415",
+  "content_sha256": "8eaac91db0e294ab0929f4a732f85bbafb119f59ceeec75e16e1a07148ea5038",
   "ai_executed": false,
   "variants": [
     "python",

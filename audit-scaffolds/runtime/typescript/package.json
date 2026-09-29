@@ -18,7 +18,7 @@
     "no",
     "ai"
   ],
-  "license": "MIT",
+  "license": "SEE LICENSE IN LICENSE",
   "author": "MapChronomancer",
   "devDependencies": {
     "typescript": "^5.4.0",
